@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div className='w-[80%] m-auto'>
+      <Navbar/>
+    </div>
   )
 }
 
