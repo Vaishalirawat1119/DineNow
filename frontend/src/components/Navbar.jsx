@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className='flex justify-between items-center'>
         <img src={assets.logo} alt="app logo" className='h-30 w-30'/>
-        <ul className='flex gap-12 text-[18px] text-[#C4A484] cursor-pointer'>
+        <ul className='flex font-[outfit] gap-12 text-[18px] text-[#C4A484] cursor-pointer'>
             <li onClick={() => {setMenu("home")}} className={menu === "home" ? "text-[#B87C4C] border-b-2 border-[#B87C4C] font-semibold" : ""}>home</li>
             <li onClick={() => {setMenu("menu")}} className={menu === "menu" ? "text-[#B87C4C] border-b-2 border-[#B87C4C] font-semibold" : ""}>menu</li>
             <li onClick={() => {setMenu("mobile-app")}} className={menu === "mobile-app" ? "text-[#B87C4C] border-b-2 border-[#B87C4C] font-semibold" : ""}>mobile-app</li>
