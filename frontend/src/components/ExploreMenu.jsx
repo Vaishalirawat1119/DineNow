@@ -26,7 +26,7 @@ const ExploreMenu = ({category, setCategory}) => {
           </div>
         ))}
       </div>
-      <hr className='my-4 mx-0 border-[#C4A484] h-1 bg-[#C4A484]'/>
+      <hr className='my-4 mx-0 border-0.5 border-[#C4A484] h-1'/>
     </div>
   )
 }
