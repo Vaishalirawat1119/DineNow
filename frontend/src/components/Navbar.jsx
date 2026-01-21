@@ -19,7 +19,7 @@ const Navbar = () => {
                 <img src={assets.basket_icon} alt="" />
                 <div className='absolute bg-[#B87C4C] h-3 w-3 -top-2 -right-2 rounded-lg'></div>
             </div>
-            <button className='bg-transparent px-8 py-3 border hover:text-amber-50 duration-400 ease-in-out hover:bg-[#B87C4C] border-[#B87C4C] rounded-md transition'>sign in</button>
+            <button className='bg-transparent px-8 py-3 border text-[#B87C4C] hover:text-amber-50 duration-400 ease-in-out hover:bg-[#B87C4C] border-[#B87C4C] rounded-4xl transition'>sign in</button>
         </div>
     </div>
   )
