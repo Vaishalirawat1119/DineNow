@@ -13,3 +13,7 @@
 .fade-in {
   animation: fadeIn 3s;
 }
+
+html {
+  scroll-behavior: smooth;
+}
