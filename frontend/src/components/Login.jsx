@@ -5,7 +5,7 @@ const Login = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Sign Up");
 
   return (
-    <div className='absolute z-1 w-full h-full bg-[#00000090] grid'>
+    <div className='absolute z-1 w-full h-full font-[outfit] bg-[#00000090] grid'>
       <form
         className='
           place-self-center
