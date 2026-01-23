@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
+*{
+  scroll-behavior: smooth;
+}
+
 @keyframes fadeIn{
   0% {
     opacity: 0;
@@ -12,8 +16,4 @@
 
 .fade-in {
   animation: fadeIn 3s;
-}
-
-html {
-  scroll-behavior: smooth;
 }
