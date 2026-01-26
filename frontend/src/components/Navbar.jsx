@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { Link } from 'react-router-dom'
+import { StoreContext } from '../context/StoreContext'
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home")
   const [open, setOpen] = useState(false)
+
+  const {getTotalCartAmount} = useContext(StoreContext);
 
   return (
     <div className='relative'>
@@ -53,11 +56,15 @@ const Navbar = ({ setShowLogin }) => {
 
           <div className='hidden md:flex items-center gap-6'>
             <img src={assets.search_icon} alt="" />
+
             <div className='relative'>
               <Link to='/cart'>
-              <img src={assets.basket_icon} alt="" />
+                <img src={assets.basket_icon} alt="" />
               </Link>
-              <div className='absolute bg-[#B87C4C] h-3 w-3 -top-2 -right-2 rounded-lg'></div>
+
+              {getTotalCartAmount() > 0 && (
+                <div className='absolute bg-[#B87C4C] h-3 w-3 -top-2 -right-2 rounded-lg'></div>
+              )}
             </div>
           </div>
 
