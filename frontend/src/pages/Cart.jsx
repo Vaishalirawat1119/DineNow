@@ -78,14 +78,14 @@ const Cart = () => {
 
             <div className='flex justify-between text-gray-500'>
               <p>Delivery fee</p>
-              <p>2</p>
+              <p>{getTotalCartAmount() === 0 ? 0 : 2}</p>
             </div>
 
             <hr className='my-3 border-[#e2e2e2]' />
 
             <div className='flex justify-between font-bold'>
               <p>Total</p>
-              <p>{getTotalCartAmount()+2}</p>
+              <p>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount()+2}</p>
             </div>
           </div>
 

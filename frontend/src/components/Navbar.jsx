@@ -30,43 +30,51 @@ const Navbar = ({ setShowLogin }) => {
 
         <div className='flex items-center justify-between w-full md:w-auto md:gap-10'>
 
-          <div className='flex items-center gap-3 md:hidden'>
-            <button
-              onClick={() => setOpen(!open)}
-              className='text-2xl text-[#B87C4C]'
-            >
-              ☰
-            </button>
+          {/* Mobile view */}
+        <div className='flex items-center gap-3 md:hidden'>
+          <button
+            onClick={() => setOpen(!open)}
+            className='text-2xl text-[#B87C4C]'
+          >
+            ☰
+          </button>
 
-            <img
-              src={assets.search_icon}
-              alt=""
-              className='w-5 h-5'
-            />
+          <img
+            src={assets.search_icon}
+            alt="Search"
+            className='w-5 h-5'
+          />
 
-            <div className='relative'>
+          <div className='relative'>
+            <Link to='/cart'>
               <img
                 src={assets.basket_icon}
-                alt=""
+                alt="Cart"
                 className='w-5 h-5'
               />
+            </Link>
+
+            {getTotalCartAmount() > 0 && (
               <div className='absolute bg-[#B87C4C] h-2 w-2 -top-1 -right-1 rounded-full'></div>
-            </div>
+            )}
           </div>
+        </div>
 
-          <div className='hidden md:flex items-center gap-6'>
-            <img src={assets.search_icon} alt="" />
+        {/* Desktop view */}
+        <div className='hidden md:flex items-center gap-6'>
+          <img src={assets.search_icon} alt="Search" className='w-5 h-5 md:w-auto md:h-auto' />
 
-            <div className='relative'>
-              <Link to='/cart'>
-                <img src={assets.basket_icon} alt="" />
-              </Link>
+          <div className='relative'>
+            <Link to='/cart'>
+              <img src={assets.basket_icon} alt="Cart" className='w-5 h-5 md:w-auto md:h-auto' />
+            </Link>
 
-              {getTotalCartAmount() > 0 && (
-                <div className='absolute bg-[#B87C4C] h-3 w-3 -top-2 -right-2 rounded-lg'></div>
-              )}
-            </div>
+            {getTotalCartAmount() > 0 && (
+              <div className='absolute bg-[#B87C4C] h-3 w-3 -top-2 -right-2 rounded-full'></div>
+            )}
           </div>
+        </div>
+
 
           <button
             onClick={() => setShowLogin(true)}
