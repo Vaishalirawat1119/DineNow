@@ -10,3 +10,28 @@ a{
     text-decoration: none;
     color: inherit;
 }
+
+/* SideBar */
+.sidebar-item {
+  @apply flex items-center gap-3 border border-[#bdb5b5] border-r-0
+         py-2 px-2.5 cursor-pointer
+         rounded-tl-[3px] rounded-bl-[3px]
+         rounded-tr-none rounded-br-none;
+}
+
+.sidebar-item-active {
+  @apply bg-[#f3f3f3] border-l-8 border-l-[#B87C4C];
+}
+
+/* Add */
+.flex-col-base {
+  @apply flex flex-col gap-2.5;
+}
+
+.input-border{
+    @apply border p-2.5;
+}
+
+.product-name-desc-style{
+    @apply w-[max(40%,280px)];
+}
