@@ -35,3 +35,8 @@ a{
 .product-name-desc-style{
     @apply w-[max(40%,280px)];
 }
+
+/* List */
+.list-table-format{
+    @apply grid grid-cols-[0.5fr_2fr_1fr_1fr_0.5fr] items-center gap-2.5 py-3 px-3.75 border border-[#cacaca] text-[13px];
+}
