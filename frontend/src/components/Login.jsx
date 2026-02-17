@@ -1,12 +1,47 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets';
+import { StoreContext } from '../context/StoreContext';
+import axios from "axios";
 
 const Login = ({ setShowLogin }) => {
+  const {url, setToken} = useContext(StoreContext);
   const [currState, setCurrState] = useState("Sign Up");
+  const [data, setData] = useState({
+    name : "",
+    email : "",
+    password : ""
+  });
+
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData(data => ({...data, [name] : value}))
+  };
+
+  const onLogin = async (event) => {
+    event.preventDefault();
+    let newUrl = url;
+    if(currState === "Login"){
+      newUrl += "/api/user/login"
+    }
+    else{
+      newUrl += "/api/user/register"
+    }
+
+    const response = await axios.post(newUrl, data);
+    if(response.data.success){
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
+      setShowLogin(false);
+    }
+    else{
+      alert(response.data.message);
+    }
+  }
 
   return (
     <div className='absolute z-1 w-full h-full font-[outfit] bg-[#00000090] grid'>
-      <form
+      <form onSubmit={onLogin}
         className='
           place-self-center
           w-[max(23vw,330px)]
@@ -39,6 +74,9 @@ const Login = ({ setShowLogin }) => {
           {currState !== "Login" && (
             <input
               className='border-2 border-[gray] p-2.5 sm:p-3 rounded-sm'
+              name='name'
+              onChange={onChangeHandler}
+              value={data.name}
               type="text"
               placeholder="Username"
               required
@@ -47,6 +85,9 @@ const Login = ({ setShowLogin }) => {
 
           <input
             className='border-2 border-[gray] p-2.5 sm:p-3 rounded-sm'
+            name='email'
+            onChange={onChangeHandler}
+            value={data.email}
             type="email"
             placeholder="Email"
             required
@@ -54,13 +95,16 @@ const Login = ({ setShowLogin }) => {
 
           <input
             className='border-2 border-[gray] p-2.5 sm:p-3 rounded-sm'
+            name='password'
+            onChange={onChangeHandler}
+            value={data.password}
             type="password"
             placeholder="Password"
             required
           />
         </div>
 
-        <button
+        <button type='submit'
           className='
             border-[none]
             p-2.5
@@ -77,7 +121,7 @@ const Login = ({ setShowLogin }) => {
         </button>
 
         <div className='flex items-start gap-2 -mt-3.75'>
-          <input className='mt-1.25' type="checkbox" />
+          <input className='mt-1.25' type="checkbox" required/>
           <p className='text-[12px] sm:text-[14px] leading-5'>
             By continuing, I agree to the terms of use & privacy policy
           </p>
